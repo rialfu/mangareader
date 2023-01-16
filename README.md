@@ -1,0 +1,2 @@
+# mangareader
+for personal project
