@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('title');
             $table->string('synopsis');
             $table->string('cover_image')->nullable();
-            $table->date('release')->nullable();
+            $table->tinyInteger('show')->default(0);
             $table->timestamps();
         });
     }

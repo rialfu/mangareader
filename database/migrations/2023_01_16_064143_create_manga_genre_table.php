@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('manga_id');
             $table->unsignedBigInteger('genre_id');
             $table->timestamps();
+            $table->foreign('manga_id')->references('id')->on('mangas')->onDelete('cascade')->onDelete('cascade');
         });
     }
 

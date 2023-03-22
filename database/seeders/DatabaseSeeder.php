@@ -20,5 +20,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        \App\Models\Genre::insert([
+            ['name_genre'=>'Romance'],
+            ['name_genre'=>'Comedy'],
+            ['name_genre'=>'Fantasy'],
+            ['name_genre'=>'Slice of Life'],
+        ]);
     }
 }

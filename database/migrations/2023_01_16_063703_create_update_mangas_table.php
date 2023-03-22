@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('manga_id');
             $table->timestamp('release', $precision = 0);
-            $table->boolean('show');
             $table->timestamps();
         });
     }

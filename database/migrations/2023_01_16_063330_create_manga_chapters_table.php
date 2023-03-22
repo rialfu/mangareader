@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('manga_id');
             $table->boolean('show', false);
+            $table->enum('lang', ['id','en']);
             $table->timestamps();
             $table->foreign('manga_id')->references('id')->on('mangas');
         });

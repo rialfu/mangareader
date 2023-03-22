@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('manga_images', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('manga_chapter_id');
+            $table->smallInteger('page');
             $table->timestamps();
             $table->foreign('manga_chapter_id')->references('id')->on('manga_chapters');
         });
