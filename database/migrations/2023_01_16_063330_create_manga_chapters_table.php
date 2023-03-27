@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('manga_chapters', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('manga_id');
-            $table->boolean('show', false);
+            $table->string('name_chapter', 10);
+            $table->boolean('show')->default(false);
             $table->enum('lang', ['id','en']);
             $table->timestamps();
+            $table->unsignedBigInteger('manga_id');
             $table->foreign('manga_id')->references('id')->on('mangas');
         });
 

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('manga_genre', function (Blueprint $table) {
-            $table->id();
+            // $table->id();
             $table->unsignedBigInteger('manga_id');
             $table->unsignedBigInteger('genre_id');
             $table->timestamps();

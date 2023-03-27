@@ -2,37 +2,34 @@
 @section('title', 'Manga')
 @section('content')
 <div class="p-3">
-    <h1>Manga</h1>
+    <h1>Chapter</h1>
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <a href="{{route('create-manga')}}" class="btn btn-success">Create Manga</a>
+                <a href="{{route('add-chapter',['id'=>$manga->id,'title'=>$manga->title])}}" class="btn btn-success">Add Chapter</a>
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Genre</th>
+                        <th>Chapter</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach($mangas as $manga)
+                        @foreach($manga->chapter as $chapter)
                             <tr>
-                                <td>{{$manga->title}}</td>
-                                <td>{{$manga->genres->implode('name_genre',', ')}}</td>
+                                <td>{{$chapter->name_chapter}} </td>
                                 <td>
                                     <a href="{{route('edit-manga',['id'=>$manga->id])}}" class="btn btn-sm btn-warning">
                                         Edit
                                     </a>
-                                    <a href="{{route('chapter',['id'=>$manga->id,'title'=>$manga->title])}}" class="btn btn-sm btn-primary">
+                                    <button class="btn btn-sm btn-primary">
                                         Chapter
-                                    </a>
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
-                </table>
-                {{$mangas->onEachSide(5)->links()}}
+                </table> 
             </div>
         </div>
     </div>

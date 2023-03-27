@@ -15,7 +15,7 @@ class Manga extends Model
         return $this->hasMany(MangaChapter::class, 'manga_id');
     }
     public function genres(){
-        return $this->belongsToMany(Genre::class, 'manga_genre');
+        return $this->belongsToMany(Genre::class, 'manga_genre')->orderBy('name_genre');
         // return $this->morphToMany(Genre::class, 'manga_genre');
     }
 }

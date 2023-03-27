@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('mangas', function (Blueprint $table) {
             $table->id();
-            $table->text('title');
-            $table->string('synopsis');
+            $table->string('title');
+            $table->text('synopsis');
             $table->string('cover_image')->nullable();
             $table->tinyInteger('show')->default(0);
             $table->timestamps();

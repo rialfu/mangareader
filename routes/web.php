@@ -16,6 +16,12 @@ use App\Http\Controllers\AdminController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/edit-manga/{id}', [AdminController::class, 'editManga'])->name('edit-manga');
+Route::put('/edit-manga/{id}', [AdminController::class, 'putEditManga'])->name('edit-manga');
+Route::get('/create-manga', [AdminController::class, 'createManga'])->name('create-manga');
+Route::post('/create-manga', [AdminController::class, 'postCreateManga']);
 Route::get('/manga', [AdminController::class, 'indexManga']);
-Route::get('/test', [AdminController::class, 'createManga']);
-Route::post('/test', [AdminController::class, 'postCreateManga']);
+Route::get('/manga/{id}/{title}', [AdminController::class, 'indexChapter'])->name('chapter');
+Route::get('/manga/{id}/{title}/add', [AdminController::class, 'addChapter'])->name('add-chapter');
+Route::post('/manga/{id}/{title}/add', [AdminController::class, 'postAddChapter']);

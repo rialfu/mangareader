@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class MangaChapter extends Model
 {
     use HasFactory;
-    protected $fillable= [];
+    protected $fillable= ['name_chapter','lang','show'];
     /**
      * Get the manga that owns the MangaChapter
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function manga(): BelongsTo
+    public function manga()
+    // : BelongsTo
     {
         return $this->belongsTo(Manga::class, 'manga_id');
     }
@@ -23,7 +24,8 @@ class MangaChapter extends Model
      *
      * @return \IllMangaImage\Database\Eloquent\Relations\HasMany
      */
-    public function image(): HasMany
+    public function image()
+    // : HasMany
     {
         return $this->hasMany(MangaImage::class, 'manga_chapter_id');
     }
