@@ -10,7 +10,7 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>Title</th>
+                        <th width="430">Title</th>
                         <th>Genre</th>
                         <th>Action</th>
                     </tr>

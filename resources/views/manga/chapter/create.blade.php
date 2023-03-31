@@ -50,6 +50,11 @@
     cursor:pointer;
     z-index:2;
 }
+
+#upload{
+    overflow-y:scroll;
+    width:100%;height:250px;
+}
 @endsection
 @section('content')
 <div class="p-3">
@@ -108,12 +113,15 @@
                                         </div>
                                         
                                         <input type="file" name="file[]" id="" class="form-control" style="display:none;">
-                                        <input type="text" name="fileName[]">
+                                        <input type="text" name="fileName[]" class="inputFileName">
                                         <i class="ico-times delete" role="img" aria-label="Cancel"></i>
                                     </div>
                                 </div> --}}
                             </div>
                             
+                        </div>
+                        <div style="width:100%;height:250px;border:1px solid black;" id="upload">
+
                         </div>
                         <button class="btn btn-success mt-3">Add Chapter</button>
                     </form>
@@ -127,6 +135,20 @@
 @endsection
 @section('script')
     <script>
+        const upload = document.querySelector("#upload")
+        upload.addEventListener('dragover', function(ev){
+            console.log('over', ev)
+            ev.preventDefault()
+        })
+        upload.addEventListener('drop', function(ev){
+            console.log("drop",ev, ev.dataTransfer.files)
+            ev.preventDefault()
+            if(ev.dataTransfer.files){
+                ev.dataTransfer.files.foreach(
+
+                )
+            }
+        })
         const labelShowHide = document.querySelector("#hideshow-label")
         document.querySelector('#hideshow').addEventListener('click', function(e){
             if(e.target.checked){
@@ -176,6 +198,8 @@
 
             const fileName = document.createElement('input')
             fileName.setAttribute('name', 'fileName[]')
+            fileName.setAttribute("class", "inputFileName")
+            fileName.addEventListener('keypress', rename)
             divParent1.appendChild(fileName)
 
             const close = document.createElement('i')
@@ -189,6 +213,20 @@
             previewImage.appendChild(divParent)
 
             e.target.value = null
+        }
+        function rename(ev){
+            const f = ev.target.parentNode.querySelector('input[type=file]')
+            if(f){
+                console.log(f.files)
+                const file = f.files[0]
+                console.log(file)
+                f.files[0] = new File([file], ev.target.value, {
+                    type: file.type,
+                    lastModified: file.lastModified,
+                })
+
+            }
+            console.log(ev.target.parentNode.querySelector('input[type=file]'))
         }
         function deletePhoto(e){
 

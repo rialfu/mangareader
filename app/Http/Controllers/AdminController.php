@@ -91,7 +91,7 @@ class AdminController extends Controller
         $uploadFile = [];
         $manga = Manga::with('chapter')->findOrFail($id);
         foreach($request->file('image') as $index => $file){
-            $name =  str_pad($request->fileName[$index],3, "0", STR_PAD_LEFT) . '_' . $manga->title . "_".date('Y-m-d')."_". $this->RandomString(10).".".$file->getClientOriginalExtension();
+            $name =  str_pad($request->fileName[$index],3, "0", STR_PAD_LEFT) . '_' . $manga->title . "_".date('Y-m-d')."_". RandomString(10).".".$file->getClientOriginalExtension();
             // dd($file->getClientOriginalExtension());
             $path = Storage::putFileAs('images', $file, $name);
             array_push($uploadFile, ['page'=>$request->fileName[$index], 'location'=>$path]);
@@ -118,13 +118,5 @@ class AdminController extends Controller
         }
         return redirect('/manga/'.$manga->id.'/'.$manga->title);
     }
-    public function RandomString($len = 10)
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $randstring = '';
-        for ($i = 0; $i < $len; $i++) {
-            $randstring .= $characters[rand(0, strlen($characters)-1)];
-        }
-        return $randstring;
-    }    
+     
 }
