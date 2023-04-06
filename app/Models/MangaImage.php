@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class MangaImage extends Model
 {
@@ -18,5 +19,8 @@ class MangaImage extends Model
     // : BelongsTo
     {
         return $this->belongsTo(MangaChapter::class, 'manga_chapter_id');
+    }
+    public function getUrlImageAttribute(){
+        return Storage::url($this->location);
     }
 }

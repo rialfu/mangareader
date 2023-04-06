@@ -18,7 +18,8 @@
     
 	<link href="{{asset('css/app.css')}}" rel="stylesheet">
 	<style>
-		@yield('css')
+		
+	@yield('css')
 	</style>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>

@@ -24,7 +24,7 @@ class MangaChapter extends Model
      *
      * @return \IllMangaImage\Database\Eloquent\Relations\HasMany
      */
-    public function image()
+    public function images()
     // : HasMany
     {
         return $this->hasMany(MangaImage::class, 'manga_chapter_id');

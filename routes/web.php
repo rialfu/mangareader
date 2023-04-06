@@ -26,4 +26,5 @@ Route::get('/manga', [AdminController::class, 'indexManga']);
 Route::get('/manga/{id}/{title}', [AdminController::class, 'indexChapter'])->name('chapter');
 Route::get('/manga/{id}/{title}/add', [AdminController::class, 'addChapter'])->name('add-chapter');
 Route::post('/manga/{id}/{title}/add', [AdminController::class, 'postAddChapter']);
+Route::get('/manga/{id}/{title}/edit/{chapterId}', [AdminController::class, 'editChapter'])->name('edit-chapter');
 // Route::get('')

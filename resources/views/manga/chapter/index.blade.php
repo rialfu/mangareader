@@ -19,7 +19,7 @@
                             <tr>
                                 <td>{{$chapter->name_chapter}} </td>
                                 <td>
-                                    <a href="{{route('edit-manga',['id'=>$manga->id])}}" class="btn btn-sm btn-warning">
+                                    <a href="{{route('edit-chapter',['id'=>$manga->id, 'title'=>$manga->title,'chapterId'=>$chapter->id])}}" class="btn btn-sm btn-warning">
                                         Edit
                                     </a>
                                     <button class="btn btn-sm btn-primary">
